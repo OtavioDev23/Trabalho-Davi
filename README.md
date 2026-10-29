@@ -91,3 +91,29 @@ O projeto possui caráter experimental e demonstrativo. Portanto, existem alguma
 ## Considerações finais
 
 A Connectivity Forecast API demonstra como estruturar e disponibilizar previsões de conectividade por meio de uma API REST. O projeto serve como base para estudos e futuras evoluções, como integração com fontes reais de monitoramento, persistência de dados e implementação de modelos de previsão efetivos.
+
+## Registro de execução
+
+### Comando executado
+
+```bash
+mvn test
+```
+
+### Resultado
+
+A execução dos testes automatizados foi concluída com sucesso.
+
+- Testes executados: 6
+- Falhas: 0
+- Erros: 0
+- Ignorados: 0
+- Resultado do build: `BUILD SUCCESS`
+
+### Limitação identificada
+
+Durante a execução dos testes, foi exibida uma mensagem relacionada ao arquivo `byte-buddy-agent-1.17.8.jar`, utilizado pelo ambiente de testes com Mockito. Apesar de os testes terem passado, recomenda-se verificar a integridade desse arquivo no repositório local do Maven e a configuração do Mockito como agente, para evitar problemas em futuras execuções.
+
+### Observação sobre os dados
+
+A aplicação carregou 5 modelos de previsão e 960 previsões para 10 probes durante os testes. Esses dados correspondem aos recursos carregados pelo ambiente de teste; sua origem e seu caráter fictício devem ser confirmados na documentação do projeto.
