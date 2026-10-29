@@ -1,27 +1,93 @@
 # Connectivity Forecast API
 
-Reimplementação Java/Spring Boot da [API de referência](https://github.com/LiniiS/connectivity-forecast-api), usada como artefato educacional de APS II.
+## Propósito do projeto
 
-## Executar
+A Connectivity Forecast API é uma API desenvolvida com Java e Spring Boot para demonstrar a disponibilização de previsões de conectividade de rede por meio de endpoints REST.
 
-Requisitos: Java 25 (LTS) e Maven 3.9+.
+O projeto tem como objetivo apresentar uma estrutura para consulta de previsões, permitindo explorar como dados de conectividade podem ser organizados e disponibilizados para consumo por outras aplicações.
+
+Para fins demonstrativos, a API utiliza dados fictícios e previsões previamente definidas, simulando um cenário de análise de conectividade sem depender de medições reais de infraestrutura de rede.
+
+## Requisitos
+
+Para executar o projeto localmente, são necessárias as seguintes ferramentas:
+
+- **Java 25 (LTS)** ou a versão compatível configurada no projeto.
+- **Apache Maven 3.9 ou superior**.
+
+Verifique as versões instaladas com os comandos:
+
+```bash
+java -version
+mvn -version
+```
+
+## Execução
+
+### 1. Executar os testes
+
+Na raiz do projeto, execute:
 
 ```bash
 mvn test
+```
+
+Esse comando compila o código e executa os testes automatizados configurados no projeto.
+
+### 2. Iniciar a aplicação
+
+Execute:
+
+```bash
 mvn spring-boot:run
 ```
 
-Swagger UI: `http://localhost:8080/swagger-ui.html`  
-OpenAPI: `http://localhost:8080/v3/api-docs`
+Após a inicialização, a API estará disponível em:
 
-## Escopo
+http://localhost:8080
 
-API local com catálogo de modelos e previsões mockadas. Fixture igual à referência: 4 modelos ativos, 10 probes e 24 instantes (960 previsões); catálogo também contém modelo inativo. Dados fictícios. Não consulta RIPE Atlas, não treina nem executa modelos, não usa banco de dados e não exige deploy. Classificação e recomendações são regras experimentais, não padrões científicos.
+Para encerrar a aplicação, pressione `Ctrl + C` no terminal.
 
-## Estrutura
+### 3. Acessar a documentação
 
-Separação em controllers, services, repositories, modelos de domínio/DTOs e configuração. API versionada em `/api/v1`, com recursos de health, modelos, localizações, previsões e atividades.
+A documentação interativa dos endpoints pode ser acessada pelo Swagger UI:
 
-## Documentação
+http://localhost:8080/swagger-ui.html
 
-README e OpenAPI são pontos de partida. Completar em exercício: descrição dos endpoints, parâmetros e validações, exemplos de requisição/resposta, códigos de erro e origem dos campos. Referência à licença MIT da API de origem preservada neste projeto.
+A especificação OpenAPI está disponível em:
+
+http://localhost:8080/v3/api-docs
+
+## Dados utilizados
+
+O projeto utiliza um conjunto de dados demonstrativos predefinidos, composto por:
+
+- 4 modelos ativos;
+- 10 probes de monitoramento;
+- 24 timestamps;
+- 960 previsões.
+
+Esses dados permitem demonstrar o funcionamento da API e a disponibilização de previsões sem depender de fontes externas de monitoramento.
+
+## Limitações
+
+O projeto possui caráter experimental e demonstrativo. Portanto, existem algumas limitações importantes:
+
+- **Dados fictícios:** as informações disponibilizadas não representam medições reais da conectividade de rede.
+- **Ausência de integração com a RIPE Atlas:** a aplicação não consulta probes ou medições reais dessa plataforma.
+- **Previsões predefinidas:** os resultados são previamente definidos, sem treinamento ou execução de modelos de machine learning em tempo real.
+- **Sem persistência em banco de dados:** o cenário demonstrativo não contempla armazenamento persistente.
+- **Sem implantação em produção:** o projeto não inclui uma infraestrutura de deploy ou configuração de produção.
+- **Classificações e recomendações experimentais:** os resultados devem ser interpretados como demonstrações conceituais, não como garantias de desempenho ou confiabilidade da rede.
+
+## Tecnologias utilizadas
+
+- Java
+- Spring Boot
+- Apache Maven
+- API REST
+- OpenAPI / Swagger UI
+
+## Considerações finais
+
+A Connectivity Forecast API demonstra como estruturar e disponibilizar previsões de conectividade por meio de uma API REST. O projeto serve como base para estudos e futuras evoluções, como integração com fontes reais de monitoramento, persistência de dados e implementação de modelos de previsão efetivos.
